@@ -1,0 +1,16 @@
+.c-portfolio {
+  &__grid {
+    transition: opacity 0.2s ease;
+
+    &--loading {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+.c-empty-state {
+  grid-column: 1 / -1;
+  color: $color-muted;
+  text-align: center;
+}

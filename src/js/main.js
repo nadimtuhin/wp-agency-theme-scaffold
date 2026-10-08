@@ -30,16 +30,21 @@ function initAjaxFilter() {
     let controller = null;
 
     filterButtons.forEach(btn => {
-        btn.addEventListener('click', async (e) => {
+        btn.addEventListener('click', async () => {
             const category = btn.dataset.filter;
 
-            filterButtons.forEach(b => b.classList.remove('c-filter-nav__item--active'));
+            filterButtons.forEach(b => {
+                b.classList.remove('c-filter-nav__item--active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('c-filter-nav__item--active');
+            btn.setAttribute('aria-pressed', 'true');
 
             if (controller) controller.abort();
             controller = new AbortController();
 
-            resultsContainer.style.opacity = '0.5';
+            resultsContainer.setAttribute('aria-busy', 'true');
+            resultsContainer.classList.add('c-portfolio__grid--loading');
 
             try {
                 const formData = new FormData();
@@ -56,7 +61,7 @@ function initAjaxFilter() {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
                 const data = await res.json();
-                if (data.success && data.data.html) {
+                if (data.success && typeof data.data.html === 'string') {
                     resultsContainer.innerHTML = data.data.html;
                 }
             } catch (err) {
@@ -64,7 +69,8 @@ function initAjaxFilter() {
                     console.error('AJAX Filter Error:', err);
                 }
             } finally {
-                resultsContainer.style.opacity = '1';
+                resultsContainer.removeAttribute('aria-busy');
+                resultsContainer.classList.remove('c-portfolio__grid--loading');
             }
         });
     });

@@ -17,5 +17,21 @@
   },
   "require": {
     "php": ">=7.4"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "platform": {
+      "php": "7.4.33"
+    }
+  },
+  "require-dev": {
+    "wp-coding-standards/wpcs": "^3.1",
+    "phpcompatibility/phpcompatibility-wp": "^2.1"
+  },
+  "scripts": {
+    "lint": "phpcs",
+    "lint:fix": "phpcbf"
   }
 }
