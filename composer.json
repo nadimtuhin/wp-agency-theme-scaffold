@@ -1,0 +1,21 @@
+{
+  "name": "nadimtuhin/wp-agency-theme-scaffold",
+  "description": "OOP backend classes for custom WordPress agency theme",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Nadim Tuhin",
+      "email": "nadimtuhin@gmail.com",
+      "homepage": "https://nadimtuhin.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AgencyTheme\\": "includes/"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  }
+}

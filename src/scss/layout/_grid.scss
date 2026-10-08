@@ -1,0 +1,16 @@
+.l-grid {
+  display: grid;
+  gap: 24px;
+
+  &--3-col {
+    grid-template-columns: 1fr;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

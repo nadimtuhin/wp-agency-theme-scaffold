@@ -1,0 +1,11 @@
+.c-footer {
+  border-top: 1px solid $color-border;
+  padding: 30px 0;
+  background-color: $color-surface;
+
+  &__copyright {
+    font-size: 13px;
+    color: $color-muted;
+    text-align: center;
+  }
+}

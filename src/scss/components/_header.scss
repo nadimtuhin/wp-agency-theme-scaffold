@@ -1,0 +1,41 @@
+.c-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+  border-bottom: 1px solid $color-border;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  &__brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+
+    @media (min-width: $bp-md) {
+      display: none;
+    }
+
+    &-bar {
+      width: 24px;
+      height: 2px;
+      background-color: $color-primary;
+      transition: transform 0.2s ease;
+    }
+  }
+}
