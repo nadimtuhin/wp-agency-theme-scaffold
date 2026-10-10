@@ -31,7 +31,7 @@ function styles() {
 }
 
 function scripts() {
-  return gulp.src(['src/js/modules/*.js', 'src/js/main.js'])
+  return gulp.src(['src/js/modules/*.js', 'src/js/main.js'], { allowEmpty: true })
     .pipe(sourcemaps.init())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(terser())
