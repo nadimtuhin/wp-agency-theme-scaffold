@@ -11,9 +11,9 @@
     }
   ],
   "autoload": {
-    "psr-4": {
-      "AgencyTheme\\": "includes/"
-    }
+    "classmap": [
+      "includes/"
+    ]
   },
   "require": {
     "php": ">=7.4"
