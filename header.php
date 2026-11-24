@@ -13,6 +13,7 @@
 </head>
 <body <?php body_class( 'l-site' ); ?>>
 <?php wp_body_open(); ?>
+<a class="u-skip-link" href="#main-content"><?php esc_html_e( 'Skip to content', 'agency-scaffold' ); ?></a>
 
 <header class="c-header" role="banner">
 	<div class="l-container c-header__container">
@@ -44,4 +45,4 @@
 	</div>
 </header>
 
-<main class="l-main" id="main-content" role="main">
+<main class="l-main" id="main-content" role="main" tabindex="-1">

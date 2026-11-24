@@ -16,7 +16,7 @@ A high-performance custom WordPress theme scaffold engineered specifically for a
 3. **Automated Gulp Asset Pipeline**: Dart SASS compilation, PostCSS Autoprefixer, clean-css minification, sourcemaps, and terser JS optimization.
 4. **WordPress Best Practices**:
    - Secure AJAX handlers using `check_ajax_referer` and nonce validation.
-   - PSR-4 autoloading via Composer for backend service classes.
+   - Composer classmap autoloading for backend service classes.
    - Native template part modularity (`template-parts/components/`).
    - Strict input sanitization (`sanitize_text_field`) and output escaping (`esc_html`, `esc_url`).
 
@@ -27,7 +27,7 @@ A high-performance custom WordPress theme scaffold engineered specifically for a
 ```
 wp-agency-theme-scaffold/
 ├── assets/                  # Compiled production CSS & JS bundles
-├── includes/                # OOP PHP backend classes (PSR-4)
+├── includes/                # OOP PHP backend classes (Composer classmap)
 │   ├── class-theme-setup.php
 │   └── class-ajax-filter.php
 ├── page-templates/          # Custom Page Templates (e.g. Landing Page)
@@ -62,6 +62,18 @@ composer install
 ```bash
 npm run dev     # Watches SCSS & JS with live rebuild
 npm run build   # Produces minified production assets
+```
+
+`assets/` is git-ignored, so run `npm run build` before activating the theme; otherwise the
+enqueued `assets/css/main.min.css` and `assets/js/main.min.js` files do not exist.
+
+### 3. Activate
+Clone or symlink this directory into `wp-content/themes/`, then activate **Agency Theme Scaffold**
+under *Appearance → Themes*. Requires WordPress 5.8+ and PHP 7.4+.
+
+### 4. Lint
+```bash
+composer lint   # PHPCS (WordPress-Extra + PHPCompatibilityWP)
 ```
 
 ---
